@@ -10,7 +10,7 @@ app.use(router)
 io.on('connection', (socket)=>{
     console.log('i have a new connection!');
     socket.on('disconnect', ()=>{
-        console.log('i have disconnected!');
+        console.log('');
     })
 })
 
