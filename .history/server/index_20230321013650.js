@@ -19,13 +19,12 @@ io.on('connection', (socket) => {
         socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` })
         socket.join(user.room)
     })
-    console.log('New User Joined!');
+    // console.log('New User Joined!');
     socket.on('sendMessage', (message, callback) => {
         const user = getUser(socket.id)
-        
     })
     socket.on('disconnect', () => {
-        console.log('The User Has Disconnected!');
+        // console.log('The User Has Disconnected!');
     })
     socket.on('chat message', (message) => {
         console.log(`received: ${message}`);

@@ -22,7 +22,6 @@ io.on('connection', (socket) => {
     console.log('New User Joined!');
     socket.on('sendMessage', (message, callback) => {
         const user = getUser(socket.id)
-        
     })
     socket.on('disconnect', () => {
         console.log('The User Has Disconnected!');
