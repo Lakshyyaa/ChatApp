@@ -17,13 +17,12 @@ io.on('connection', (socket) => {
         socket.emit('message', { user: 'admin', text: `${user.name}, welcome to the room ${user.room}` })
         socket.broadcast.to(user.room).emit('message', { user: 'admin', text: `${user.name} has joined!` })
         socket.join(user.room)
-        io.to(user.room).emit('roomData', { room: user.room, user: getUsersInRoom({ room: user.room }) })
+        io.to(user.room).emit('roomData', {room: user.room: user:getUsersInRoom})
     })
     console.log('New User Joined!');
     socket.on('sendMessage', (message, callback) => {
         const user = getUser({ id: socket.id })
         io.to(user.room).emit('message', { user: user.name, text: message })
-        io.to(user.room).emit('roomData', { room: user.room, user: getUsersInRoom({ room: user.room }) })
         callback()
     })
     socket.on('disconnect', () => {
