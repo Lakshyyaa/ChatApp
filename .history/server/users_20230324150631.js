@@ -10,15 +10,13 @@ const addUser = ({ id, name, room }) => {
     users.push(user)
     return { user }
 }
-const removeUser = (id) => {
-    const index = users.findIndex((user) => user.id === id)
+const removeUser = ({ id }) => {
+    const index = users.find((user) => user.id === id)
     if (index !== -1) {
-        console.log(index + ' is the index');
+        console.log(index);
         return users.splice(index, 1)[0]
     }
-    console.log('no index found!')
 }
-
 const getUser = ({ id }) => {
     return users.find((user) => user.id === id)
 }

@@ -26,13 +26,11 @@ io.on('connection', (socket) => {
         callback()
     })
     socket.on('disconnect', () => {
-        const user = removeUser(socket.id)
-        console.log(user);
+        console.log('disconnet hogyaa')
+        const user = removeUser( socket.id )
         if (user) {
             io.to(user.room).emit('message', { user: 'admin', text: `${user.name} has left!` })
-            io.to(user.room).emit('roomData', { room: user.room, user: getUsersInRoom({ room: user.room }) })
-        } else {
-            console.log("nothing deleted");
+            // io.to(user.room).emit('roomData', { room: user.room, user: getUsersInRoom({ room: user.room }) })
         }
     })
 })

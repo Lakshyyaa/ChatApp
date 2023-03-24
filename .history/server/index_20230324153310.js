@@ -31,7 +31,7 @@ io.on('connection', (socket) => {
         if (user) {
             io.to(user.room).emit('message', { user: 'admin', text: `${user.name} has left!` })
             io.to(user.room).emit('roomData', { room: user.room, user: getUsersInRoom({ room: user.room }) })
-        } else {
+        }else{
             console.log("nothing deleted");
         }
     })
