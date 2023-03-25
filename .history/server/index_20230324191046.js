@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
             io.to(user.room).emit('message', { user: 'admin', text: `${user.name} has left!` })
             io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom({ room: user.room }) })
         } else {
-            // console.log("nothing deleted");
+            console.log("nothing deleted");
         }
     })
 })
